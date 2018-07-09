@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#808080"
+    android:visibility="visible"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/timer1"
+        android:layout_width="348dp"
+        android:layout_height="164dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:scaleX="-1"
+        android:scaleY="-1"
+        android:soundEffectsEnabled="true"
+        android:text="05:00"
+        android:textSize="50sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/timer2"
+        android:layout_width="358dp"
+        android:layout_height="178dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="21dp"
+        android:text="05:00"
+        android:textSize="50sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/TxtMoves1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/timer1"
+        android:layout_alignStart="@+id/timer1"
+        android:layout_below="@+id/timer1"
+        android:scaleX="-1"
+        android:scaleY="-1"
+        android:text="Moves : 0"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/TxtMoves2"
+        android:layout_width="wrap_content"
+        android:layout_height="32dp"
+        android:layout_above="@+id/timer2"
+        android:layout_alignEnd="@+id/timer2"
+        android:layout_alignRight="@+id/timer2"
+        android:text="Moves : 0"
+        android:textColor="@android:color/black"
+        android:textSize="22sp" />
+
+    <ImageButton
+        android:id="@+id/Reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/TxtMoves2"
+        android:layout_centerVertical="true"
+        app:srcCompat="@android:drawable/ic_popup_sync"
+        android:layout_alignLeft="@+id/TxtMoves2" />
+
+    <ImageButton
+        android:id="@+id/Pause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/pause" />
+
+    <ImageButton
+        android:id="@+id/Setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/TxtMoves1"
+        android:layout_alignRight="@+id/TxtMoves1"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/sittings" />
+
+</RelativeLayout>
