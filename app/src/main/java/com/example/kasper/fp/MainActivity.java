@@ -161,8 +161,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 timer1.setEnabled(false);
                 timer2.setEnabled(true);
-                ///////
-                timer1.setBackgroundColor(Color.CYAN);
         }else if(view.getId()==R.id.timer2){
             if(Timer1Running){
                 PauseTimer1();
@@ -180,8 +178,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
             timer2.setEnabled(false);
             timer1.setEnabled(true);
-            ///////
-            timer2.setBackgroundColor(Color.CYAN);
         }else if(view.getId()==R.id.Reset){
             if(TimeLeftInMills1!=StartTime || TimeLeftInMills2!=StartTime) {
                 AlertDialog.Builder alt = new AlertDialog.Builder(MainActivity.this);
