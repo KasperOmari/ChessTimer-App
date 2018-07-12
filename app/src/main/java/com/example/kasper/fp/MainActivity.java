@@ -70,6 +70,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         secs = secs % 60;
         timer2.setText(String.format("%d:%02d", mins,secs));
         TxtMoves2.setText(String.format("Moves : %d",moves2));
+
+        if(Timer1Running){
+            timer1.setBackgroundColor(Color.RED);
+            if(whitePlayer==1){
+                timer2.setBackgroundColor(Color.BLACK);
+                timer2.setTextColor(Color.WHITE);
+            }else{
+                timer2.setBackgroundColor(Color.WHITE);
+                timer2.setTextColor(Color.BLACK);
+            }
+        }else if(Timer2Running){
+            timer2.setBackgroundColor(Color.RED);
+            if(whitePlayer==2){
+                timer1.setBackgroundColor(Color.BLACK);
+                timer1.setTextColor(Color.WHITE);
+            }else{
+                timer1.setBackgroundColor(Color.WHITE);
+                timer1.setTextColor(Color.BLACK);
+            }
+        }
     }
 
     private void StartTimer1(){
@@ -222,6 +242,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                     Pause.setImageResource(R.drawable.pause);
                     isPause=true;
+                }
+                if(whitePlayer==1){
+                    timer1.setBackgroundColor(Color.WHITE);
+                    timer1.setTextColor(Color.BLACK);
+
+                    timer2.setBackgroundColor(Color.BLACK);
+                    timer2.setTextColor(Color.WHITE);
+                }else{
+                    timer1.setBackgroundColor(Color.BLACK);
+                    timer1.setTextColor(Color.WHITE);
+
+                    timer2.setBackgroundColor(Color.WHITE);
+                    timer2.setTextColor(Color.BLACK);
                 }
             }
         }else if(view.getId() == R.id.Setting){

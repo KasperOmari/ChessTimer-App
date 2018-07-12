@@ -2,9 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/BackGround"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#808080"
+    android:background="@drawable/chess_background"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -65,10 +66,10 @@
         android:id="@+id/Reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/TxtMoves2"
         android:layout_alignStart="@+id/TxtMoves2"
         android:layout_centerVertical="true"
-        app:srcCompat="@android:drawable/ic_popup_sync"
-        android:layout_alignLeft="@+id/TxtMoves2" />
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <ImageButton
         android:id="@+id/Pause"
