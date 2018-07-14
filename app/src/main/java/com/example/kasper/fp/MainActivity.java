@@ -1,7 +1,7 @@
 package com.example.kasper.fp;
 
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AlertDialog;
@@ -11,24 +11,32 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-    private Button timer1,timer2;
-    private int whitePlayer;
-    private ImageButton Reset,Pause,Setting;
-    private TextView TxtMoves1,TxtMoves2;
+    private static Button timer1;
+    private static Button timer2;
+    private static int whitePlayer;
+    private ImageButton Reset;
+    private static ImageButton Pause;
+    private ImageButton Setting;
+    private static TextView TxtMoves1;
+    private static TextView TxtMoves2;
     private int ch;
-    private static final long StartTime=300000;
+    private static long StartTime=300000;
 
-    private boolean Timer1Running,Timer2Running,isPause;
+    private static boolean Timer1Running;
+    private static boolean Timer2Running;
+    private static boolean isPause;
 
-    private long TimeLeftInMills1=StartTime;
-    private long TimeLeftInMills2=StartTime;
+    private static long TimeLeftInMills1=StartTime;
+    private static long TimeLeftInMills2=StartTime;
 
-    private int moves1,moves2;
-    private CountDownTimer cdt1,cdt2;
+    private static int moves1;
+    private static int moves2;
+    private static CountDownTimer cdt1;
+    private static CountDownTimer cdt2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,11 +62,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Pause.setImageResource(R.drawable.pause);
         isPause=true;
 
+
         UpdateText();
         ResetTimers();
     }
 
-    private void UpdateText(){
+    private static void UpdateText(){
         int secs = (int) (TimeLeftInMills1 / 1000);
         int mins = secs / 60;
         secs = secs % 60;
@@ -74,18 +83,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(Timer1Running){
             timer1.setBackgroundColor(Color.RED);
             if(whitePlayer==1){
+                timer1.setTextColor(Color.WHITE);
+
                 timer2.setBackgroundColor(Color.BLACK);
                 timer2.setTextColor(Color.WHITE);
             }else{
+                timer1.setTextColor(Color.BLACK);
+
                 timer2.setBackgroundColor(Color.WHITE);
                 timer2.setTextColor(Color.BLACK);
             }
         }else if(Timer2Running){
             timer2.setBackgroundColor(Color.RED);
             if(whitePlayer==2){
+                timer2.setTextColor(Color.WHITE);
+
                 timer1.setBackgroundColor(Color.BLACK);
                 timer1.setTextColor(Color.WHITE);
             }else{
+                timer2.setTextColor(Color.BLACK);
+
                 timer1.setBackgroundColor(Color.WHITE);
                 timer1.setTextColor(Color.BLACK);
             }
@@ -127,17 +144,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Timer2Running = true;
     }
 
-    private void PauseTimer1(){
+    private static void PauseTimer1(){
         cdt1.cancel();
         Timer1Running = false;
     }
 
-    private void PauseTimer2(){
+    private static void PauseTimer2(){
         cdt2.cancel();
         Timer2Running = false;
     }
 
-    private void ResetTimers(){
+    public static void ResetTimers(){
         if(Timer1Running)
             PauseTimer1();
         if(Timer2Running)
@@ -159,6 +176,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         TimeLeftInMills1 = TimeLeftInMills2 = StartTime;
 
+        UpdateText();
+    }
+
+
+    public static void ChangeTimers(long mints){
+        StartTime = mints * 60 * 1000;
+        TimeLeftInMills1=StartTime;
+        TimeLeftInMills2=StartTime;
         UpdateText();
     }
 
@@ -260,10 +285,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else if(view.getId() == R.id.Setting){
             if(isPause)
                 Pause.performClick();
-
-            //go to settings page
+            Intent st = new Intent(MainActivity.this,Sittings.class);
+            startActivity(st);
         }
     }
-}//
-/* TODO {Hovering buttons,Add multiple modes (plus 5 secs for each move , custom timer)}
-*/
+}

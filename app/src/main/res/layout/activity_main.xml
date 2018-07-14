@@ -48,7 +48,7 @@
         android:scaleX="-1"
         android:scaleY="-1"
         android:text="Moves : 0"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="22sp" />
 
     <TextView
@@ -59,17 +59,17 @@
         android:layout_alignEnd="@+id/timer2"
         android:layout_alignRight="@+id/timer2"
         android:text="Moves : 0"
-        android:textColor="@android:color/black"
+        android:textColor="@android:color/white"
         android:textSize="22sp" />
 
     <ImageButton
         android:id="@+id/Reset"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/TxtMoves2"
-        android:layout_alignStart="@+id/TxtMoves2"
+        android:layout_alignEnd="@+id/timer1"
         android:layout_centerVertical="true"
-        app:srcCompat="@android:drawable/ic_popup_sync" />
+        app:srcCompat="@android:drawable/ic_popup_sync"
+        android:layout_alignRight="@+id/timer1" />
 
     <ImageButton
         android:id="@+id/Pause"
@@ -82,9 +82,9 @@
         android:id="@+id/Setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/TxtMoves1"
-        android:layout_alignRight="@+id/TxtMoves1"
+        android:layout_alignStart="@+id/timer1"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/sittings" />
+        app:srcCompat="@drawable/sittings"
+        android:layout_alignLeft="@+id/timer1" />
 
 </RelativeLayout>
