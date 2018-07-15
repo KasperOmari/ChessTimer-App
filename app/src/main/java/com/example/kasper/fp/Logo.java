@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 public class Logo extends AppCompatActivity {
-    private final long WELCOME_TIME = 4000;
+    private final long WELCOME_TIME = 3000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
