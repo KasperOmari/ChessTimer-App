@@ -5,7 +5,7 @@
     android:id="@+id/BackGround"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/chess_background"
+    android:background="@android:color/darker_gray"
     android:visibility="visible"
     tools:context=".MainActivity">
 
@@ -48,7 +48,7 @@
         android:scaleX="-1"
         android:scaleY="-1"
         android:text="Moves : 0"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="22sp" />
 
     <TextView
@@ -59,32 +59,32 @@
         android:layout_alignEnd="@+id/timer2"
         android:layout_alignRight="@+id/timer2"
         android:text="Moves : 0"
-        android:textColor="@android:color/white"
+        android:textColor="@android:color/black"
         android:textSize="22sp" />
 
     <ImageButton
         android:id="@+id/Reset"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="86dp"
         android:layout_alignEnd="@+id/timer1"
+        android:layout_alignRight="@+id/timer1"
         android:layout_centerVertical="true"
-        app:srcCompat="@android:drawable/ic_popup_sync"
-        android:layout_alignRight="@+id/timer1" />
+        app:srcCompat="@android:drawable/ic_popup_sync" />
 
     <ImageButton
         android:id="@+id/Pause"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="86dp"
         android:layout_centerInParent="true"
         android:src="@drawable/pause" />
 
     <ImageButton
         android:id="@+id/Setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="96dp"
+        android:layout_height="86dp"
+        android:layout_alignLeft="@+id/timer1"
         android:layout_alignStart="@+id/timer1"
         android:layout_centerVertical="true"
-        app:srcCompat="@drawable/sittings"
-        android:layout_alignLeft="@+id/timer1" />
+        app:srcCompat="@drawable/sittings" />
 
 </RelativeLayout>
