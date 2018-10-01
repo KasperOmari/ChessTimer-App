@@ -84,11 +84,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             timer1.setBackgroundColor(Color.RED);
             if(whitePlayer==1){
                 timer1.setTextColor(Color.WHITE);
+                TxtMoves1.setTextColor(Color.WHITE);
 
                 timer2.setBackgroundColor(Color.BLACK);
                 timer2.setTextColor(Color.WHITE);
             }else{
                 timer1.setTextColor(Color.BLACK);
+                TxtMoves1.setTextColor(Color.BLACK);
 
                 timer2.setBackgroundColor(Color.WHITE);
                 timer2.setTextColor(Color.BLACK);
@@ -97,18 +99,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             timer2.setBackgroundColor(Color.RED);
             if(whitePlayer==2){
                 timer2.setTextColor(Color.WHITE);
+                TxtMoves2.setTextColor(Color.WHITE);
 
                 timer1.setBackgroundColor(Color.BLACK);
                 timer1.setTextColor(Color.WHITE);
             }else{
                 timer2.setTextColor(Color.BLACK);
+                TxtMoves2.setTextColor(Color.BLACK);
 
                 timer1.setBackgroundColor(Color.WHITE);
                 timer1.setTextColor(Color.BLACK);
             }
         }
     }
-
+    private void Finish(){
+        Timer1Running = false;
+        Timer2Running = false;
+        timer1.setText("done!");
+        timer2.setText("done!");
+        timer1.setEnabled(false);
+        timer2.setEnabled(false);
+    }
     private void StartTimer1(){
         cdt1 = new CountDownTimer(TimeLeftInMills1,100) {
             @Override
@@ -119,9 +130,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFinish() {
-                Timer1Running = false;
-                timer1.setText("done!");
-                timer2.setText("done!");
+                if(whitePlayer == 1){
+                    timer1.setBackgroundColor(Color.WHITE);
+                    timer1.setTextColor(Color.BLACK);
+                    TxtMoves1.setTextColor(Color.BLACK);
+                }else{
+                    timer1.setBackgroundColor(Color.BLACK);
+                    timer1.setTextColor(Color.WHITE);
+                    TxtMoves1.setTextColor(Color.WHITE);
+                }
+                Finish();
             }
         }.start();
         Timer1Running = true;
@@ -136,9 +154,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
             @Override
             public void onFinish() {
-                Timer2Running = false;
-                timer1.setText("done!");
-                timer2.setText("done!");
+                if(whitePlayer == 2){
+                    timer2.setBackgroundColor(Color.WHITE);
+                    timer2.setTextColor(Color.BLACK);
+                    TxtMoves2.setTextColor(Color.BLACK);
+                }else{
+                    timer2.setBackgroundColor(Color.BLACK);
+                    timer2.setTextColor(Color.WHITE);
+                    TxtMoves2.setTextColor(Color.WHITE);
+                }
+                Finish();
             }
         }.start();
         Timer2Running = true;
@@ -165,9 +190,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         timer1.setBackgroundColor(Color.WHITE);
         timer1.setTextColor(Color.BLACK);
+        TxtMoves1.setTextColor(Color.BLACK);
 
         timer2.setBackgroundColor(Color.WHITE);
         timer2.setTextColor(Color.BLACK);
+        TxtMoves2.setTextColor(Color.BLACK);
 
         Pause.setImageResource(R.drawable.pause);
         isPause = true;
@@ -201,11 +228,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }else{
                     timer1.setBackgroundColor(Color.BLACK);
                     timer1.setTextColor(Color.WHITE);
+
                     whitePlayer=2;
                     StartTimer2();
                 }
                 timer1.setEnabled(false);
                 timer2.setEnabled(true);
+                TxtMoves1.setTextColor(whitePlayer==1?Color.BLACK:Color.WHITE);
+
         }else if(view.getId()==R.id.timer2){
             if(Timer1Running){
                 PauseTimer1();
@@ -218,11 +248,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }else{
                 timer2.setBackgroundColor(Color.BLACK);
                 timer2.setTextColor(Color.WHITE);
+
                 whitePlayer=1;
                 StartTimer1();
             }
             timer2.setEnabled(false);
             timer1.setEnabled(true);
+            TxtMoves2.setTextColor(whitePlayer==2?Color.BLACK:Color.WHITE);
+
         }else if(view.getId()==R.id.Reset){
             if(TimeLeftInMills1!=StartTime || TimeLeftInMills2!=StartTime) {
                 AlertDialog.Builder alt = new AlertDialog.Builder(MainActivity.this);
@@ -271,21 +304,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 if(whitePlayer==1){
                     timer1.setBackgroundColor(Color.WHITE);
                     timer1.setTextColor(Color.BLACK);
+                    TxtMoves1.setTextColor(Color.BLACK);
 
                     timer2.setBackgroundColor(Color.BLACK);
                     timer2.setTextColor(Color.WHITE);
+                    TxtMoves2.setTextColor(Color.WHITE);
                 }else{
                     timer1.setBackgroundColor(Color.BLACK);
                     timer1.setTextColor(Color.WHITE);
+                    TxtMoves1.setTextColor(Color.WHITE);
 
                     timer2.setBackgroundColor(Color.WHITE);
                     timer2.setTextColor(Color.BLACK);
+                    TxtMoves2.setTextColor(Color.BLACK);
                 }
             }
         }else if(view.getId() == R.id.Setting){
             if(isPause)
                 Pause.performClick();
-            Intent st = new Intent(MainActivity.this,Sittings.class);
+            Intent st = new Intent(MainActivity.this,Settings.class);
             startActivity(st);
         }
     }
